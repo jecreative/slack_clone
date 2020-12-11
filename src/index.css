@@ -16,6 +16,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 header {
@@ -25,6 +26,7 @@ header {
   padding: 10px 0;
   background-color: var(--slack-color);
   color: white;
+  width: 100vw;
 }
 
 .header_left {
@@ -47,6 +49,12 @@ header {
   border: 1px solid gray;
   border-radius: 6px;
   margin: 0 5px;
+}
+
+@media (max-width: 500px) {
+  .header_search {
+    display: none;
+  }
 }
 
 .header_search > input {
@@ -121,6 +129,34 @@ header {
   color: green;
 }
 
+@media (max-width: 500px) {
+  #sidebar {
+    flex: 0.5;
+  }
+  .sidebar_header > .MuiSvgIcon-root {
+    display: none;
+  }
+  .sidebar_info h2 {
+    font-size: 10px;
+    font-weight: 900;
+    margin-bottom: 5px;
+  }
+
+  .sidebar_info h3 {
+    display: flex;
+    align-items: center;
+    font-size: 7px;
+    font-weight: 400;
+  }
+
+  .sidebar_info > h3 > .MuiSvgIcon-root {
+    font-size: 7px;
+    margin-top: 1px;
+    margin-right: 2px;
+    color: green;
+  }
+}
+
 .sidebarOption {
   display: flex;
   align-items: center;
@@ -128,6 +164,13 @@ header {
   padding-left: 2px;
   cursor: pointer;
   margin: 0.5rem 0rem;
+}
+
+@media (max-width: 500px) {
+  .sidebarOption {
+    font-size: 8px;
+    margin: 0.25rem 0rem;
+  }
 }
 
 .sidebarOption:hover {
@@ -197,7 +240,6 @@ main {
   align-items: center;
   padding: 20px;
 }
-
 #message > img {
   height: 50px;
   width: 50px;
@@ -212,6 +254,30 @@ main {
   color: gray;
   font-weight: 300;
   font-size: 13px;
+}
+
+@media (max-width: 500px) {
+  #message {
+    display: flex;
+    align-items: flex-start;
+
+    padding: 10px;
+  }
+  #message > img {
+    height: 35px;
+    width: 35px;
+    object-fit: contain;
+  }
+  .message_timestamp {
+    color: gray;
+    font-weight: 300;
+    font-size: 8px;
+    display: block;
+    margin: 0.1rem 0;
+  }
+  .message_info > p {
+    font-size: 10px;
+  }
 }
 
 #login {
@@ -253,8 +319,20 @@ main {
   margin-right: 10px;
 }
 
+@media (max-width: 500px) {
+  .login_container {
+    margin: 0 1rem;
+    padding: 50px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+}
+
 #chatInput {
   border-radius: 20px;
+  width: 100%;
 }
 
 #chatInput > form {
@@ -282,4 +360,27 @@ main {
 
 #chatInput > form > button {
   display: none !important;
+}
+
+@media (max-width: 500px) {
+  #chatInput > form > input {
+    position: fixed;
+    bottom: 30px;
+    width: 55%;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 10px;
+    outline: none;
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+  }
+
+  #chatInput > form > input:focus {
+    padding: 12px;
+    cursor: text;
+  }
+
+  #chatInput > form > button {
+    display: none !important;
+  }
 }
