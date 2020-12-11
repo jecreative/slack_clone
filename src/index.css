@@ -127,6 +127,7 @@ header {
   font-size: 12px;
   padding-left: 2px;
   cursor: pointer;
+  margin: 0.5rem 0rem;
 }
 
 .sidebarOption:hover {

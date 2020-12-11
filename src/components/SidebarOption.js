@@ -2,7 +2,16 @@ import { useHistory } from 'react-router-dom'
 
 import db from '../firebase'
 
-const SidebarOption = ({ Icon, title, id, addChannelOption }) => {
+const SidebarOption = ({
+  Icon,
+  title,
+  id,
+  addChannelOption,
+  setShowChannels,
+  showChannels,
+  setShowTopics,
+  showTopics,
+}) => {
   const history = useHistory()
 
   const selectChannel = () => {
@@ -23,10 +32,26 @@ const SidebarOption = ({ Icon, title, id, addChannelOption }) => {
     }
   }
 
+  const showChannel = () => {
+    setShowChannels(!showChannels)
+  }
+
+  const showTopic = () => {
+    setShowTopics(!showTopics)
+  }
+
   return (
     <div
       className='sidebarOption'
-      onClick={addChannelOption ? addChannel : selectChannel}
+      onClick={
+        addChannelOption
+          ? addChannel
+          : setShowChannels
+          ? showChannel
+          : setShowTopics
+          ? showTopic
+          : selectChannel
+      }
     >
       {Icon && <Icon className='sidebarOption_icon' />}
       {Icon ? (
