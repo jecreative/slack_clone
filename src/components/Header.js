@@ -2,11 +2,17 @@ import { Avatar } from '@material-ui/core'
 import AccessTimeIcon from '@material-ui/icons/AccessTime'
 import SearchIcon from '@material-ui/icons/Search'
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 
 import { useStateValue } from '../context/StateProvider'
+import { actionTypes } from '../context/reducer'
 
 const Header = () => {
-  const [{ user }] = useStateValue()
+  const [{ user }, dispatch] = useStateValue()
+
+  const logoutUser = () => {
+    dispatch({ type: actionTypes.LOGOUT_USER })
+  }
   return (
     <header id='header'>
       <div className='header_left'>
@@ -23,6 +29,7 @@ const Header = () => {
       </div>
       <div className='header_right'>
         <HelpOutlineIcon />
+        <ExitToAppIcon onClick={logoutUser} />
       </div>
     </header>
   )

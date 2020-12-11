@@ -2,6 +2,10 @@
   --slack-color: #3f0f40;
 }
 
+.MuiSvgIcon-root {
+  cursor: pointer;
+}
+
 * {
   margin: 0;
 }
@@ -42,6 +46,7 @@ header {
   color: gray;
   border: 1px solid gray;
   border-radius: 6px;
+  margin: 0 5px;
 }
 
 .header_search > input {
@@ -56,10 +61,11 @@ header {
   flex: 0.3;
   display: flex;
   align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .header_right > .MuiSvgIcon-root {
-  margin-left: auto;
+  /* margin-left: 5px; */
   margin-right: 20px;
 }
 
