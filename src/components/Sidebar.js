@@ -14,9 +14,11 @@ import AddIcon from '@material-ui/icons/Add'
 
 import SidebarOption from './SidebarOption'
 import db from '../firebase'
+import { useStateValue } from '../context/StateProvider'
 
 const Sidebar = () => {
   const [channels, setChannels] = useState([])
+  const [{ user }] = useStateValue()
 
   useEffect(() => {
     db.collection('rooms').onSnapshot((snapshot) => {
@@ -36,7 +38,7 @@ const Sidebar = () => {
           <h2>Creative Media</h2>
           <h3>
             <FiberManualRecordIcon />
-            Jordan Esguerra
+            {user?.displayName}
           </h3>
         </div>
         <CreateIcon />
