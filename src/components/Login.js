@@ -29,7 +29,7 @@ const Login = () => {
           src='https://cdn.mos.cms.futurecdn.net/SDDw7CnuoUGax6x9mTo7dd.jpg'
           alt=''
         />
-        <h1>Sign in to Slack</h1>
+        <h1>Sign in to Slack Clone</h1>
         <Button onClick={signIn}>
           <i className='devicon-google-plain'></i>
           Sign in with Google
