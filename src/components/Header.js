@@ -3,11 +3,12 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime'
 import SearchIcon from '@material-ui/icons/Search'
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
+import Tooltip from '@material-ui/core/Tooltip'
 
 import { useStateValue } from '../context/StateProvider'
 import { actionTypes } from '../context/reducer'
 
-const Header = () => {
+const Header = ({ toggleSidebar, setToggleSidebar }) => {
   const [{ user }, dispatch] = useStateValue()
 
   const logoutUser = () => {
@@ -29,7 +30,9 @@ const Header = () => {
       </div>
       <div className='header_right'>
         <HelpOutlineIcon />
-        <ExitToAppIcon onClick={logoutUser} />
+        <Tooltip title='Logout'>
+          <ExitToAppIcon onClick={logoutUser} />
+        </Tooltip>
       </div>
     </header>
   )
