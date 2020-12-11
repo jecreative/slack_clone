@@ -5,7 +5,7 @@ import HelpOutlineIcon from '@material-ui/icons/HelpOutline'
 
 const Header = () => {
   return (
-    <header>
+    <header id='header'>
       <div className='header_left'>
         <Avatar
           className='header_avatar'
