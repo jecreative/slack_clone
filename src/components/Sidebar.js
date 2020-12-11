@@ -55,7 +55,7 @@ const Sidebar = () => {
       <SidebarOption Icon={AddIcon} addChannelOption title='Add Channel' />
       {/* Connect to DB and list all channels */}
       {channels.map((channel) => (
-        <SidebarOption title={channel.name} id={channel.id} />
+        <SidebarOption title={channel.name} id={channel.id} key={channel.id} />
       ))}
     </div>
   )
