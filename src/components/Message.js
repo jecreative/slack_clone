@@ -1,6 +1,6 @@
 const Message = ({ message: { message, timestamp, user, userImage } }) => {
   return (
-    <div className='message'>
+    <div id='message'>
       <img src={userImage} alt={user} />
       <div className='message_info'>
         <h4>
