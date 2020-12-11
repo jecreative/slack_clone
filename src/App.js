@@ -8,6 +8,7 @@ import Chat from './components/Chat'
 import Login from './components/Login'
 
 const App = () => {
+  // eslint-disable-next-line
   const [{ user }, dispatch] = useStateValue()
 
   return (
