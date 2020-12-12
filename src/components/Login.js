@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Button from '@material-ui/core/Button'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import { auth, provider } from '../firebase'
 import { useStateValue } from '../context/StateProvider'
@@ -12,15 +12,17 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const history = useHistory()
+
   const signInWithGoogle = () => {
     auth
       .signInWithPopup(provider)
       .then((result) => {
-        console.log(result)
         dispatch({
           type: actionTypes.SET_USER,
           user: result.user,
         })
+        history.push('/room/dOKp9ngM4V5CX5eAknX9')
       })
       .catch((error) => {
         alert(error.message)
