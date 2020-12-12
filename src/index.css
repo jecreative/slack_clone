@@ -39,30 +39,75 @@ header {
   margin-left: auto;
   margin-right: 30px;
 }
+
 .header_search {
   flex: 0.4;
-  background-color: #421f44;
-  text-align: center;
-  display: flex;
   padding: 0 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_searchInput {
+  background-color: #421f44;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: gray;
   border: 1px solid gray;
   border-radius: 6px;
-  margin: 0 5px;
+  margin: 0 auto;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .header_search {
     display: none;
   }
 }
 
-.header_search > input {
+.header_searchInput > input {
   background-color: transparent;
   border: none;
-  text-align: center;
+  text-align: left;
   min-width: 35vw;
   outline: none;
+  color: gray;
+  font-size: 16px;
+  padding: 0 10px;
+}
+
+.search_results {
+  position: absolute;
+  visibility: hidden;
+}
+
+.search_results.active {
+  position: absolute;
+  visibility: visible;
+  background-color: white;
+  width: 80%;
+
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
+  top: 30px;
+}
+
+.searchedItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+}
+
+.searchedItem > h4 {
+  color: black;
+  margin: 10px;
+}
+
+.searchedItem > .MuiSvgIcon-root {
+  color: black;
+  width: 15px;
+  margin-right: 10px;
 }
 
 .header_right {
