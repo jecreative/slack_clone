@@ -20,8 +20,8 @@ import { useStateValue } from '../context/StateProvider'
 
 const Sidebar = () => {
   const [channels, setChannels] = useState([])
-  const [showChannels, setShowChannels] = useState(false)
-  const [showTopics, setShowTopics] = useState(false)
+  const [showChannels, setShowChannels] = useState(true)
+  const [showTopics, setShowTopics] = useState(true)
   const [{ user }] = useStateValue()
 
   const history = useHistory()
@@ -69,7 +69,7 @@ const Sidebar = () => {
           <h2>Creative Media</h2>
           <h3>
             <FiberManualRecordIcon />
-            {user?.displayName}
+            {user?.displayName !== null ? user?.displayName : user?.email}
           </h3>
         </div>
         <Tooltip title='Add Channel' placement='bottom-start'>
