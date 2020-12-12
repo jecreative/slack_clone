@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom'
 
 import { useStateValue } from './context/StateProvider'
 
@@ -6,6 +11,7 @@ import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import Chat from './components/Chat'
 import Login from './components/Login'
+import Register from './components/Register'
 
 const App = () => {
   // eslint-disable-next-line
@@ -14,8 +20,16 @@ const App = () => {
   return (
     <div className='app'>
       <Router>
+        {!user && <Redirect to='/login' />}
         {!user ? (
-          <Login />
+          <>
+            <Route path='/login' exact>
+              <Login />
+            </Route>
+            <Route path='/register' exact>
+              <Register />
+            </Route>
+          </>
         ) : (
           <>
             <Header />
@@ -23,9 +37,6 @@ const App = () => {
               <Sidebar />
               <Switch>
                 <Route path='/room/:roomId' component={Chat} />
-                <Route path='/'>
-                  <h1>Welcome</h1>
-                </Route>
               </Switch>
             </main>
           </>
