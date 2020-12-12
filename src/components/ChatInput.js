@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import firebase from 'firebase'
+import SendIcon from '@material-ui/icons/Send'
 
 import db from '../firebase'
 import { useStateValue } from '../context/StateProvider'
@@ -33,7 +34,7 @@ const ChatInput = ({ channelName, channelId }) => {
           placeholder={`Message #${channelName?.toLowerCase()}`}
         />
         <button type='submit' onClick={sendMessage}>
-          Send
+          <SendIcon />
         </button>
       </form>
     </div>
