@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Button from '@material-ui/core/Button'
 import { Link, useHistory } from 'react-router-dom'
+import PeopleIcon from '@material-ui/icons/People'
 
 import { auth, provider } from '../firebase'
 import { useStateValue } from '../context/StateProvider'
@@ -29,6 +30,30 @@ const Login = () => {
       })
   }
 
+  const signInGuest = () => {
+    auth
+      .signInWithEmailAndPassword('guest@email.com', 'guestUser123456')
+      .then((result) => {
+        console.log(result)
+        dispatch({
+          type: actionTypes.SET_USER,
+          user: result.user,
+        })
+        history.push('/room/dOKp9ngM4V5CX5eAknX9')
+      })
+      .catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code
+        var errorMessage = error.message
+        if (errorCode === 'auth/wrong-password') {
+          alert('Wrong password.')
+        } else {
+          alert(errorMessage)
+        }
+        console.log(error)
+      })
+  }
+
   const signInWithEmail = () => {
     auth
       .signInWithEmailAndPassword(email, password)
@@ -38,6 +63,7 @@ const Login = () => {
           type: actionTypes.SET_USER,
           user: result.user,
         })
+        history.push('/room/dOKp9ngM4V5CX5eAknX9')
       })
       .catch(function (error) {
         // Handle Errors here.
@@ -80,6 +106,12 @@ const Login = () => {
           <Button onClick={signInWithGoogle}>
             <i className='devicon-google-plain'></i>
             Continue with Google
+          </Button>
+        </div>
+        <div className='login_guest'>
+          <Button onClick={signInGuest}>
+            <PeopleIcon />
+            Login as Guest
           </Button>
         </div>
         <div className='login_hr'>

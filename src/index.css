@@ -313,6 +313,12 @@ main {
     width: 35px;
     object-fit: contain;
   }
+
+  #message > .MuiAvatar-root > .MuiSvgIcon-root {
+    height: 35px;
+    width: 35px;
+    object-fit: contain;
+  }
   .message_timestamp {
     color: gray;
     font-weight: 300;
@@ -409,6 +415,7 @@ main {
   font-weight: 600 !important;
   font-size: 18px;
   width: 100%;
+  margin: 25px 0;
 }
 
 .login_google > button:hover {
@@ -416,6 +423,24 @@ main {
 }
 
 .login_google i {
+  margin-right: 10px;
+}
+
+.login_guest > button {
+  text-transform: inherit !important;
+  background-color: #fff !important;
+  border: 2px solid #2db67c;
+  color: #2db67c;
+  font-weight: 600 !important;
+  font-size: 18px;
+  width: 100%;
+}
+
+.login_guest > button:hover {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
+}
+
+.login_guest > button > span > .MuiSvgIcon-root {
   margin-right: 10px;
 }
 
@@ -508,6 +533,18 @@ main {
   width: 100%;
 }
 
+#chatInput > form > .error {
+  border: 1px solid #e11e5a;
+  background-color: #e11e5a;
+  position: fixed;
+  bottom: 100px;
+  width: 30%;
+  padding: 15px;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+}
+
 #chatInput > form {
   position: relative;
   display: flex;
@@ -536,6 +573,13 @@ main {
 }
 
 @media (max-width: 500px) {
+  #chatInput > form > .error {
+    font-size: 12px;
+    width: 55%;
+    padding: 10px;
+    bottom: 80px;
+  }
+
   #chatInput > form > input {
     position: fixed;
     bottom: 30px;
